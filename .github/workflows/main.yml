@@ -43,6 +43,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-simple-api:latest
           push: ${{ github.ref == 'refs/heads/main' }}
 
+          
       - name: Build image and push database
         uses: docker/build-push-action@v3
         with:
