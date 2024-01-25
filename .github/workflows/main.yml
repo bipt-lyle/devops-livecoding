@@ -36,6 +36,7 @@ jobs:
                   -Dsonar.organization=bipt-lyle \
                   -Dsonar.host.url=https://sonarcloud.io \
                   -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+                  -f ./simple-api/pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
