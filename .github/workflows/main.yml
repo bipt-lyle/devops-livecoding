@@ -28,3 +28,6 @@ jobs:
 
       - name: Build http-server image
         run: docker build -t my-http-server-image ./http-server
+
+      - name: Login to DockerHub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
