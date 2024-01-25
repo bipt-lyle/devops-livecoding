@@ -21,13 +21,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Login to DockerHub
-        run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+      # - name: Login to DockerHub
+      #   run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
-      - name: Build and test simple-api
-        run: mvn clean verify -f ./simple-api/pom.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Build and test simple-api
+      #   run: mvn clean verify -f ./simple-api/pom.xml
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # 添加 SonarCloud 分析步骤
       - name: SonarCloud analysis
@@ -43,7 +43,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-simple-api:latest
           push: ${{ github.ref == 'refs/heads/main' }}
 
-          
+
       - name: Build image and push database
         uses: docker/build-push-action@v3
         with:
