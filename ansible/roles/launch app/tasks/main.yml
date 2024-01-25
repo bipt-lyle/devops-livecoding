@@ -1,0 +1,6 @@
+- name: Run Application
+  docker_container:
+    name: my_app
+    image: jdoe/my-app:1.0
+    networks:
+      - name: my_network

@@ -1,0 +1,6 @@
+- name: Run Database
+  docker_container:
+    name: database
+    image: your_database_image:tag
+    networks:
+      - name: my_network

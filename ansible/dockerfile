@@ -1,0 +1,17 @@
+# Start with a base image that has Python installed, as Ansible is Python-based
+FROM python:3.8-slim
+
+# Install Ansible via pip
+RUN pip install --no-cache-dir ansible
+
+# (Optional) Install any other dependencies you might need
+# RUN apt-get update && apt-get install -y <your-dependencies> && rm -rf /var/lib/apt/lists/*
+
+# Copy your Ansible configuration, playbooks, roles, and inventory into the container
+COPY ansible/ /ansible/
+
+# Set working directory to /ansible where your Ansible playbooks are located
+WORKDIR /ansible
+
+# By default, run ansible-playbook command
+CMD ["ansible-playbook", "--version"]
