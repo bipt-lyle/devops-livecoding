@@ -31,12 +31,8 @@ jobs:
 
       # 添加 SonarCloud 分析步骤
       - name: SonarCloud analysis
-        run: mvn -B verify sonar:sonar \
-                  -Dsonar.projectKey=bipt-lyle_devops-livecoding \
-                  -Dsonar.organization=bipt-lyle \
-                  -Dsonar.host.url=https://sonarcloud.io \
-                  -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-                  -f ./simple-api/pom.xml
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=bipt-lyle_devops-livecoding -Dsonar.organization=bipt-lyle -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -f ./simple-api/pom.xml
+    
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
