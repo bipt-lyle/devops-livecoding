@@ -1,6 +1,6 @@
 - name: Run Application
   docker_container:
     name: my_app
-    image: jdoe/my-app:1.0
+    image: liuyingda7701/tp-devops-simple-api:latest
     networks:
       - name: my_network

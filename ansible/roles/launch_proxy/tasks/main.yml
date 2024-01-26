@@ -1,6 +1,6 @@
 - name: Run HTTPD
   docker_container:
     name: httpd
-    image: jdoe/my-httpd:1.0
+    image: liuyingda7701/tp-devops-http-server:latest
     networks:
       - name: my_network

@@ -67,4 +67,7 @@ jobs:
         run: ansible-playbook -i ./ansible/inventories/setup.yml ./ansible/playbook.yml
         env:
           ANSIBLE_HOST_KEY_CHECKING: False
-          ANSIBLE_SSH_PRIVATE_KEY_FILE: private_key.pem
+          ANSIBLE_SSH_PRIVATE_KEY_FILE: ${{ github.workspace }}/private_key.pem
+        
+
+    

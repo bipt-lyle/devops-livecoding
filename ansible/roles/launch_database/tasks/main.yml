@@ -1,6 +1,6 @@
 - name: Run Database
   docker_container:
     name: database
-    image: your_database_image:tag
+    image: liuyingda7701/tp-devops-database:latest
     networks:
       - name: my_network
