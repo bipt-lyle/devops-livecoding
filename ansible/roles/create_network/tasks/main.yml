@@ -1,3 +1,5 @@
 - name: Create a network
   docker_network:
     name: my_network
+    docker_host: tcp://yingda.liu.takima.cloud:2375
+  
