@@ -4,14 +4,17 @@ FROM python:3.8-slim
 # Install Ansible via pip
 RUN pip install --no-cache-dir ansible
 
-# (Optional) Install any other dependencies you might need
-# RUN apt-get update && apt-get install -y <your-dependencies> && rm -rf /var/lib/apt/lists/*
-
 # Copy your Ansible configuration, playbooks, roles, and inventory into the container
-COPY ansible/ /ansible/
+COPY ./ansible/ /ansible/
 
 # Set working directory to /ansible where your Ansible playbooks are located
 WORKDIR /ansible
 
+# Copy your SSH private key into the container
+COPY id_rsa /root/.ssh/id_rsa
+
+# Set the correct permissions for the private key
+RUN chmod 600 /root/.ssh/id_rsa
+
 # By default, run ansible-playbook command
-CMD ["ansible-playbook", "--version"]
+CMD ["ansible-playbook", "-i", "inventories/setup.yml", "playbook.yml"]

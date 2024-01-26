@@ -1,9 +1,6 @@
-
 all:
- vars:
-   ansible_user: centos
-   ansible_ssh_private_key_file: C:/Users/33766/Downloads/id_rsa
- children:
-   prod:
-     hosts: yingda.liu.takima.cloud
-
+  hosts:
+    yingda.liu.takima.cloud:
+      ansible_host: yingda.liu.takima.cloud
+      ansible_user: centos
+      ansible_ssh_private_key_file: /root/.ssh/id_rsa
