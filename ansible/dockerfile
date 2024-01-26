@@ -10,11 +10,8 @@ COPY ./ansible/ /ansible/
 # Set working directory to /ansible where your Ansible playbooks are located
 WORKDIR /ansible
 
-# Copy your SSH private key into the container
-COPY id_rsa /root/.ssh/id_rsa
-
-# Set the correct permissions for the private key
-RUN chmod 600 /root/.ssh/id_rsa
+# Ensure the .ssh directory exists
+RUN mkdir -p /root/.ssh && chmod 700 /root/.ssh
 
 # By default, run ansible-playbook command
 CMD ["ansible-playbook", "-i", "inventories/setup.yml", "playbook.yml"]
